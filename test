@@ -1,23 +1,20 @@
-Proactively engaged with Functional and AD teams to gather and understand project requirements.
-Maintained daily coordination with the Functional Team to discuss ongoing and upcoming tasks.
-Successfully automated the critical and complex Split UI Feature, achieving the required test coverage, and received commendation from Suraj.
-Enhanced the existing Fee Agreement report by including Client ID as per stakeholder requirements, facilitating better identification of functional issues.
-Played a key role as a Trainer/Facilitator in the TIF Java Boot camp, training 40+ women technologists, and received positive feedback from the boot camp Lead.
-Took ownership of the Fee Agreement Automation project, developing and maintaining automation scripts, supporting release activities, and ensuring successful sign-offs.
-Improved mail reporting for DFX and Fee Agreement, making it easier for stakeholders to access and understand key updates.
-Proactively participated in learning the UI Canary framework and contributed to related tasks.
-Mentored new team members during onboarding, actively participating in on-floor activities to ensure smooth transitions.
-Successfully completed automation testing for the Currency Deadline module, delivering results on time.
-Developed and executed the OTM approval task, ensuring timely execution of the Regression pack and consistently sharing reports with stakeholders.
+The team recognizes the positive contributions made, including the addition of the WebDriverManager layer to the framework, the integration of ExtentReports into the Spring flavor of Spartan, and the implementation of the skip check functionality in the Cucumber layer. These efforts have enhanced the automation framework, and the dedication shown is appreciated.
 
+Improvements Needed:
 
-Proactively engaged with Functional and AD teams to gather and understand project requirements.
-Maintained daily coordination with the Functional Team to discuss ongoing and upcoming tasks.
-Successfully automated the critical and complex Split UI Feature, achieving the required test coverage, and received commendation from Suraj.
-Enhanced the existing Fee Agreement report by including Client ID as per stakeholder requirements, facilitating better identification of functional issues.
+Adding API Capability in Spring flavor of Spartan: Critical issues such as thread leaks and inadequate token handling were identified, which could have compromised the Spartan Automation framework.
 
-She has quickly adapted to the TES automation role, mastering existing tools and frameworks, and delivered automated regression testing for the DFX Project.
+Spartan UI Canary: The JSON string update fix failed during a live demo, leading to incorrect generation and requiring an urgent hotfix.
 
-Demonstrated strong understanding of requirements by mapping business scenarios to test cases, script development, and execution.
-Provided crucial support during release activities.
-Consistently highlighted and followed up on any issues faced, ensuring timely resolution.
+Dependency on Other Team Members: There is a need to strengthen independence in handling tasks like Maven dependency upgrades and basic execution queries.
+
+Clean Code: There are recurring issues with code cleanliness and maintainability that need attention.
+
+Learning Curve: A steeper learning curve is necessary, especially in mastering new concepts and tools.
+
+Scenario Articulation: Improvement in clearly articulating scenarios is required.
+
+Excel Sheet Logic: The logic implemented in Excel sheets has faced challenges, necessitating greater accuracy and reliability.
+
+Focusing on these areas in the coming months will significantly enhance both individual contributions and the team’s overall success.
+
