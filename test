@@ -43,6 +43,16 @@ public class CanaryApp {
         JButton updateSecretButton = new JButton("Update Secret");
         frame.add(updateSecretButton);
 
+        // Submit Button
+        JButton submitButton = new JButton("Submit");
+        submitButton.setVisible(false);
+        frame.add(submitButton);
+
+        // Reset Button
+        JButton resetButton = new JButton("Reset");
+        resetButton.setVisible(false);
+        frame.add(resetButton);
+
         // Placeholder for dropdown and text field (initially hidden)
         String[] secretOptions = {"Secret1", "Secret2", "Secret3"};
         JComboBox<String> secretDropdown = new JComboBox<>(secretOptions);
@@ -60,7 +70,30 @@ public class CanaryApp {
             public void actionPerformed(ActionEvent e) {
                 secretDropdown.setVisible(true);
                 secretTextField.setVisible(true);
-                frame.pack(); // Adjusts the frame size to fit the new components
+                submitButton.setVisible(true);
+                resetButton.setVisible(true);
+                frame.revalidate(); // Refreshes the layout without resizing the frame
+            }
+        });
+
+        // Action listener for Submit button
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selectedSecret = (String) secretDropdown.getSelectedItem();
+                String enteredText = secretTextField.getText();
+                System.out.println("Submitted Secret: " + selectedSecret + ", Entered Text: " + enteredText);
+                // Implement the submit logic here
+            }
+        });
+
+        // Action listener for Reset button
+        resetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                secretDropdown.setSelectedIndex(0); // Reset dropdown to first item
+                secretTextField.setText(""); // Clear text field
+                System.out.println("Form reset.");
             }
         });
 
