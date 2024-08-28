@@ -6,52 +6,52 @@ import java.awt.event.ActionListener;
 public class CanaryApp {
 
     // Placeholder for Canary Name
-    private static final String CANARY_NAME = "Canary XYZ";
+    private static final String CANARY_NAME = "Governance";
 
     public static void main(String[] args) {
         // Create the main frame
         JFrame frame = new JFrame("Canary Management");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 200);
-        frame.setLayout(new FlowLayout());
+        frame.setSize(400, 300);
+        frame.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
 
         // Label for Canary Name
         JLabel canaryLabel = new JLabel("Canary Name: " + CANARY_NAME);
-        frame.add(canaryLabel);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 2;
+        gbc.anchor = GridBagConstraints.WEST;
+        frame.add(canaryLabel, gbc);
+
+        // Blank space (2 lines)
+        gbc.gridy = 1;
+        frame.add(Box.createVerticalStrut(20), gbc);
 
         // Start Button
         JButton startButton = new JButton("Start");
-        startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                startCanary();
-            }
-        });
-        frame.add(startButton);
+        gbc.gridy = 2;
+        gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.WEST;
+        frame.add(startButton, gbc);
 
         // Stop Button
         JButton stopButton = new JButton("Stop");
-        stopButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                stopCanary();
-            }
-        });
-        frame.add(stopButton);
+        gbc.gridx = 1;
+        frame.add(stopButton, gbc);
+
+        // Blank space (2 lines)
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.gridwidth = 2;
+        frame.add(Box.createVerticalStrut(20), gbc);
 
         // Update Secret Button
         JButton updateSecretButton = new JButton("Update Secret");
-        frame.add(updateSecretButton);
-
-        // Submit Button
-        JButton submitButton = new JButton("Submit");
-        submitButton.setVisible(false);
-        frame.add(submitButton);
-
-        // Reset Button
-        JButton resetButton = new JButton("Reset");
-        resetButton.setVisible(false);
-        frame.add(resetButton);
+        gbc.gridy = 4;
+        gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.WEST;
+        frame.add(updateSecretButton, gbc);
 
         // Placeholder for dropdown and text field (initially hidden)
         String[] secretOptions = {"Secret1", "Secret2", "Secret3"};
@@ -61,8 +61,13 @@ public class CanaryApp {
         secretDropdown.setVisible(false);
         secretTextField.setVisible(false);
 
-        frame.add(secretDropdown);
-        frame.add(secretTextField);
+        // Dropdown and Text Field Layout
+        gbc.gridy = 5;
+        gbc.gridwidth = 1;
+        frame.add(secretDropdown, gbc);
+
+        gbc.gridx = 1;
+        frame.add(secretTextField, gbc);
 
         // Action listener for Update Secret button
         updateSecretButton.addActionListener(new ActionListener() {
@@ -70,9 +75,41 @@ public class CanaryApp {
             public void actionPerformed(ActionEvent e) {
                 secretDropdown.setVisible(true);
                 secretTextField.setVisible(true);
-                submitButton.setVisible(true);
-                resetButton.setVisible(true);
                 frame.revalidate(); // Refreshes the layout without resizing the frame
+            }
+        });
+
+        // Blank space (2 lines)
+        gbc.gridx = 0;
+        gbc.gridy = 6;
+        gbc.gridwidth = 2;
+        frame.add(Box.createVerticalStrut(20), gbc);
+
+        // Submit Button
+        JButton submitButton = new JButton("Submit");
+        gbc.gridy = 7;
+        gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.WEST;
+        frame.add(submitButton, gbc);
+
+        // Reset Button
+        JButton resetButton = new JButton("Reset");
+        gbc.gridx = 1;
+        frame.add(resetButton, gbc);
+
+        // Action listener for Start button
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                startCanary();
+            }
+        });
+
+        // Action listener for Stop button
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                stopCanary();
             }
         });
 
