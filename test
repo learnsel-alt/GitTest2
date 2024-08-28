@@ -138,6 +138,11 @@ public class CanaryApp {
             public void actionPerformed(ActionEvent e) {
                 secretDropdown.setSelectedIndex(0); // Reset dropdown to first item
                 secretTextField.setText(""); // Clear text field
+                secretDropdown.setVisible(false); // Hide dropdown
+                secretTextField.setVisible(false); // Hide text field
+                submitButton.setVisible(false); // Hide submit button
+                resetButton.setVisible(false); // Hide reset button
+                frame.revalidate(); // Refresh the layout to hide components
                 System.out.println("Form reset.");
             }
         });
