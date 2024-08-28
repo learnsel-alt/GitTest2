@@ -13,85 +13,64 @@ public class CanaryApp {
         JFrame frame = new JFrame("Canary Management");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
-        frame.setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
+        frame.setLayout(new BorderLayout(10, 10));
 
-        // Label for Canary Name
+        // Create the main panel with vertical box layout
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        // Canary Name Panel
+        JPanel canaryPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel canaryLabel = new JLabel("Canary Name: " + CANARY_NAME);
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.gridwidth = 2;
-        gbc.anchor = GridBagConstraints.WEST;
-        frame.add(canaryLabel, gbc);
+        canaryPanel.add(canaryLabel);
+        mainPanel.add(canaryPanel);
 
-        // Blank space (2 lines)
-        gbc.gridy = 1;
-        frame.add(Box.createVerticalStrut(20), gbc);
+        // Add blank space
+        mainPanel.add(Box.createVerticalStrut(20));
 
-        // Start Button
+        // Start/Stop Buttons Panel
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JButton startButton = new JButton("Start");
-        gbc.gridy = 2;
-        gbc.gridwidth = 1;
-        gbc.anchor = GridBagConstraints.WEST;
-        frame.add(startButton, gbc);
-
-        // Stop Button
         JButton stopButton = new JButton("Stop");
-        gbc.gridx = 1;
-        frame.add(stopButton, gbc);
+        buttonPanel.add(startButton);
+        buttonPanel.add(stopButton);
+        mainPanel.add(buttonPanel);
 
-        // Blank space (2 lines)
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        gbc.gridwidth = 2;
-        frame.add(Box.createVerticalStrut(20), gbc);
+        // Add blank space
+        mainPanel.add(Box.createVerticalStrut(20));
 
-        // Update Secret Button
+        // Update Secret Button Panel
+        JPanel updatePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JButton updateSecretButton = new JButton("Update Secret");
-        gbc.gridy = 4;
-        gbc.gridwidth = 1;
-        gbc.anchor = GridBagConstraints.WEST;
-        frame.add(updateSecretButton, gbc);
+        updatePanel.add(updateSecretButton);
+        mainPanel.add(updatePanel);
 
-        // Placeholder for dropdown and text field (initially hidden)
+        // Dropdown and Text Field Panel (initially hidden)
+        JPanel secretPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         String[] secretOptions = {"Secret1", "Secret2", "Secret3"};
         JComboBox<String> secretDropdown = new JComboBox<>(secretOptions);
         JTextField secretTextField = new JTextField(10);
 
         secretDropdown.setVisible(false);
         secretTextField.setVisible(false);
+        secretPanel.add(secretDropdown);
+        secretPanel.add(secretTextField);
+        mainPanel.add(secretPanel);
 
-        // Add vertical space (2 lines) before the dropdown and text field
-        gbc.gridy = 5;
-        frame.add(Box.createVerticalStrut(20), gbc);
-
-        // Dropdown and Text Field Layout
-        gbc.gridy = 6;
-        gbc.gridwidth = 1;
-        frame.add(secretDropdown, gbc);
-
-        gbc.gridx = 1;
-        frame.add(secretTextField, gbc);
-
-        // Add more vertical space before Submit and Reset buttons
-        gbc.gridx = 0;
-        gbc.gridy = 7;
-        gbc.gridwidth = 2;
-        frame.add(Box.createVerticalStrut(20), gbc);
-
-        // Submit Button (initially hidden)
+        // Submit/Reset Buttons Panel (initially hidden)
+        JPanel submitResetPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JButton submitButton = new JButton("Submit");
-        submitButton.setVisible(false);
-        gbc.gridy = 8;
-        gbc.gridwidth = 1;
-        gbc.anchor = GridBagConstraints.WEST;
-        frame.add(submitButton, gbc);
-
-        // Reset Button (initially hidden)
         JButton resetButton = new JButton("Reset");
+
+        submitButton.setVisible(false);
         resetButton.setVisible(false);
-        gbc.gridx = 1;
-        frame.add(resetButton, gbc);
+        submitResetPanel.add(submitButton);
+        submitResetPanel.add(resetButton);
+        mainPanel.add(submitResetPanel);
+
+        // Add everything to the main frame
+        frame.add(mainPanel, BorderLayout.CENTER);
 
         // Action listener for Update Secret button
         updateSecretButton.addActionListener(new ActionListener() {
