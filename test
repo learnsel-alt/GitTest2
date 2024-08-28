@@ -61,6 +61,10 @@ public class CanaryApp {
         secretDropdown.setVisible(false);
         secretTextField.setVisible(false);
 
+        // Add vertical space (2 lines) before the dropdown and text field
+        gbc.gridy = 5;
+        frame.add(Box.createVerticalStrut(20), gbc);
+
         // Dropdown and Text Field Layout
         gbc.gridy = 6;
         gbc.gridwidth = 1;
@@ -69,11 +73,18 @@ public class CanaryApp {
         gbc.gridx = 1;
         frame.add(secretTextField, gbc);
 
+        // Add more vertical space before Submit and Reset buttons
+        gbc.gridx = 0;
+        gbc.gridy = 7;
+        gbc.gridwidth = 2;
+        frame.add(Box.createVerticalStrut(20), gbc);
+
         // Submit Button (initially hidden)
         JButton submitButton = new JButton("Submit");
         submitButton.setVisible(false);
-        gbc.gridx = 0;
-        gbc.gridy = 7;
+        gbc.gridy = 8;
+        gbc.gridwidth = 1;
+        gbc.anchor = GridBagConstraints.WEST;
         frame.add(submitButton, gbc);
 
         // Reset Button (initially hidden)
@@ -86,8 +97,6 @@ public class CanaryApp {
         updateSecretButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gbc.gridy = 5;
-                frame.add(Box.createVerticalStrut(10), gbc); // Add 1 line gap
                 secretDropdown.setVisible(true);
                 secretTextField.setVisible(true);
                 submitButton.setVisible(true);
