@@ -62,7 +62,7 @@ public class CanaryApp {
         secretTextField.setVisible(false);
 
         // Dropdown and Text Field Layout
-        gbc.gridy = 5;
+        gbc.gridy = 6;
         gbc.gridwidth = 1;
         frame.add(secretDropdown, gbc);
 
@@ -86,6 +86,8 @@ public class CanaryApp {
         updateSecretButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                gbc.gridy = 5;
+                frame.add(Box.createVerticalStrut(10), gbc); // Add 1 line gap
                 secretDropdown.setVisible(true);
                 secretTextField.setVisible(true);
                 submitButton.setVisible(true);
