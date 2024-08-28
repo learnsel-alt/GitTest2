@@ -69,33 +69,30 @@ public class CanaryApp {
         gbc.gridx = 1;
         frame.add(secretTextField, gbc);
 
+        // Submit Button (initially hidden)
+        JButton submitButton = new JButton("Submit");
+        submitButton.setVisible(false);
+        gbc.gridx = 0;
+        gbc.gridy = 7;
+        frame.add(submitButton, gbc);
+
+        // Reset Button (initially hidden)
+        JButton resetButton = new JButton("Reset");
+        resetButton.setVisible(false);
+        gbc.gridx = 1;
+        frame.add(resetButton, gbc);
+
         // Action listener for Update Secret button
         updateSecretButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 secretDropdown.setVisible(true);
                 secretTextField.setVisible(true);
+                submitButton.setVisible(true);
+                resetButton.setVisible(true);
                 frame.revalidate(); // Refreshes the layout without resizing the frame
             }
         });
-
-        // Blank space (2 lines)
-        gbc.gridx = 0;
-        gbc.gridy = 6;
-        gbc.gridwidth = 2;
-        frame.add(Box.createVerticalStrut(20), gbc);
-
-        // Submit Button
-        JButton submitButton = new JButton("Submit");
-        gbc.gridy = 7;
-        gbc.gridwidth = 1;
-        gbc.anchor = GridBagConstraints.WEST;
-        frame.add(submitButton, gbc);
-
-        // Reset Button
-        JButton resetButton = new JButton("Reset");
-        gbc.gridx = 1;
-        frame.add(resetButton, gbc);
 
         // Action listener for Start button
         startButton.addActionListener(new ActionListener() {
