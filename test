@@ -1,19 +1,82 @@
-Tested 70+ reports and 2 feeds, raising defects and providing detailed analysis reports using Praetorian, optimizing large file comparisons with microservices.
-Resolved team queries and facilitated comparison report generation using Praetorian.
-Assisted multiple teams in onboarding and troubleshooting automation tools, resolving over 82 user queries.
-Enhanced solutions based on client requirements, including Sybase DB connectivity and creating a custom tool for XML to JSON file comparison.
-Fixed critical issues in Praetorian Bat and API, including handling large files, null values, and improving sequence handling.
-Upgraded to JDK 17, Moneta boot, and other dependencies within 7-8 days for Praetorian Bat, API, and Microservice.
-Added multiple step definitions, locator files, and integrated Sniff API for network tracking in the Spartan Spring framework.
-Enhanced backend API automation with Rest Assured library in the Spartan Spring framework.
-Implemented a reporting layer, email and screenshot capability, custom error handling, and logging features in WebPro 1.0.
-Completed AWS Developer Associate and HashiCorp Terraform Associate certifications.
-Participated in a global hackathon, mentored team members, and contributed to scripting and tool understanding.
-Successfully included Orphan Base and Orphan Target records in the summary report of Praetorian Bat XML Comparator, improving data accuracy based on configuration settings.
-Fixed issues related to Praetorian Bat, such as handling input files with more than 2,000 rows and resolving primary key blank value issues in detailed reports.
-Addressed Praetorian API issues by ensuring hidden columns are ignored and improving JSON array comparison based on primary keys.
-Helped Production Management teams understand and implement the Spartan UI Canary framework, providing guidance on scripting and troubleshooting.
-Extended the current tool's capabilities based on client feedback, leading to enhanced user satisfaction and tool adoption.
-Added support for handling complex web elements within Spartan Spring framework, improving test coverage and reliability.
-Played a key role in updating and maintaining the Spartan Spring framework, ensuring compatibility with new dependencies and tools.
-Demonstrated strong problem-solving skills by quickly addressing critical issues during live demos, preventing delays in project timelines.
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class CanaryApp {
+
+    // Placeholder for Canary Name
+    private static final String CANARY_NAME = "Canary XYZ";
+
+    public static void main(String[] args) {
+        // Create the main frame
+        JFrame frame = new JFrame("Canary Management");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 200);
+        frame.setLayout(new FlowLayout());
+
+        // Label for Canary Name
+        JLabel canaryLabel = new JLabel("Canary Name: " + CANARY_NAME);
+        frame.add(canaryLabel);
+
+        // Start Button
+        JButton startButton = new JButton("Start");
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                startCanary();
+            }
+        });
+        frame.add(startButton);
+
+        // Stop Button
+        JButton stopButton = new JButton("Stop");
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                stopCanary();
+            }
+        });
+        frame.add(stopButton);
+
+        // Update Secret Button
+        JButton updateSecretButton = new JButton("Update Secret");
+        frame.add(updateSecretButton);
+
+        // Placeholder for dropdown and text field (initially hidden)
+        String[] secretOptions = {"Secret1", "Secret2", "Secret3"};
+        JComboBox<String> secretDropdown = new JComboBox<>(secretOptions);
+        JTextField secretTextField = new JTextField(10);
+
+        secretDropdown.setVisible(false);
+        secretTextField.setVisible(false);
+
+        frame.add(secretDropdown);
+        frame.add(secretTextField);
+
+        // Action listener for Update Secret button
+        updateSecretButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                secretDropdown.setVisible(true);
+                secretTextField.setVisible(true);
+                frame.pack(); // Adjusts the frame size to fit the new components
+            }
+        });
+
+        // Show the frame
+        frame.setVisible(true);
+    }
+
+    // Placeholder method for starting the canary
+    private static void startCanary() {
+        System.out.println("Canary started.");
+        // Implement the start logic here
+    }
+
+    // Placeholder method for stopping the canary
+    private static void stopCanary() {
+        System.out.println("Canary stopped.");
+        // Implement the stop logic here
+    }
+}
