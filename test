@@ -162,3 +162,19 @@ Reduces setup time by 50%, saving effort in building automated tests.
 Provides automated checks with minimal coding, capturing performance data.
 Makes it easy to monitor the system's health in real-time.
 
+
+Background
+Spartan UI Canary helps teams create automated tests to ensure their applications are always running smoothly. It continuously checks key features to prevent issues.
+
+Problem
+System outages can disrupt business operations, causing significant losses. We need a way to monitor application availability and performance.
+
+Solution
+Spartan provides a simple template for creating automated tests, integrated into our systems. It tracks real-time data to identify issues early, using tools like Grafana and Geneos.
+
+Benefits
+
+Saves 50% of build effort.
+Automates health checks with minimal coding.
+Improves system monitoring and reduces manual work.
+
