@@ -1,180 +1,25 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+Provided upskilling opportunities for the team.
+Improved SRE maturity across key applications through automation.
 
-public class CanaryApp {
 
-    // Placeholder for Canary Name
-    private static final String CANARY_NAME = "Governance";
+Identify all Start of Week (SOW) and Start of Day (SOD) UI/PVT checks in SST.
+Automate identified use cases and document in the Unified Backlog.
+Continuous Improvement & Solution Exploration:
 
-    public static void main(String[] args) {
-        // Create the main frame
-        JFrame frame = new JFrame("Canary Management");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
-        frame.setLayout(new BorderLayout(10, 10));
-
-        // Create the main panel with vertical box layout
-        JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-        mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
-        // Canary Name Panel
-        JPanel canaryPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JLabel canaryLabel = new JLabel("Canary Name: " + CANARY_NAME);
-        canaryPanel.add(canaryLabel);
-        mainPanel.add(canaryPanel);
-
-        // Add blank space
-        mainPanel.add(Box.createVerticalStrut(20));
-
-        // Start/Stop Buttons Panel
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JButton startButton = new JButton("Start");
-        JButton stopButton = new JButton("Stop");
-        buttonPanel.add(startButton);
-        buttonPanel.add(stopButton);
-        mainPanel.add(buttonPanel);
-
-        // Add blank space
-        mainPanel.add(Box.createVerticalStrut(20));
-
-        // Update Secret Button Panel
-        JPanel updatePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JButton updateSecretButton = new JButton("Update Secret");
-        updatePanel.add(updateSecretButton);
-        mainPanel.add(updatePanel);
-
-        // Dropdown and Text Field Panel (initially hidden)
-        JPanel secretPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        String[] secretOptions = {"Secret1", "Secret2", "Secret3"};
-        JComboBox<String> secretDropdown = new JComboBox<>(secretOptions);
-        JTextField secretTextField = new JTextField(10);
-
-        secretDropdown.setVisible(false);
-        secretTextField.setVisible(false);
-        secretPanel.add(secretDropdown);
-        secretPanel.add(secretTextField);
-        mainPanel.add(secretPanel);
-
-        // Submit/Reset Buttons Panel (initially hidden)
-        JPanel submitResetPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JButton submitButton = new JButton("Submit");
-        JButton resetButton = new JButton("Reset");
-
-        submitButton.setVisible(false);
-        resetButton.setVisible(false);
-        submitResetPanel.add(submitButton);
-        submitResetPanel.add(resetButton);
-        mainPanel.add(submitResetPanel);
-
-        // Add everything to the main frame
-        frame.add(mainPanel, BorderLayout.CENTER);
-
-        // Action listener for Update Secret button
-        updateSecretButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                secretDropdown.setVisible(true);
-                secretTextField.setVisible(true);
-                submitButton.setVisible(true);
-                resetButton.setVisible(true);
-                frame.revalidate(); // Refreshes the layout without resizing the frame
-            }
-        });
-
-        // Action listener for Start button
-        startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                startCanary();
-            }
-        });
-
-        // Action listener for Stop button
-        stopButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                stopCanary();
-            }
-        });
-
-        // Action listener for Submit button
-        submitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String selectedSecret = (String) secretDropdown.getSelectedItem();
-                String enteredText = secretTextField.getText();
-                System.out.println("Submitted Secret: " + selectedSecret + ", Entered Text: " + enteredText);
-                // Implement the submit logic here
-            }
-        });
-
-        // Action listener for Reset button
-        resetButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                secretDropdown.setSelectedIndex(0); // Reset dropdown to first item
-                secretTextField.setText(""); // Clear text field
-                secretDropdown.setVisible(false); // Hide dropdown
-                secretTextField.setVisible(false); // Hide text field
-                submitButton.setVisible(false); // Hide submit button
-                resetButton.setVisible(false); // Hide reset button
-                frame.revalidate(); // Refresh the layout to hide components
-                System.out.println("Form reset.");
-            }
-        });
-
-        // Show the frame
-        frame.setVisible(true);
-    }
-
-    // Placeholder method for starting the canary
-    private static void startCanary() {
-        System.out.println("Canary started.");
-        // Implement the start logic here
-    }
-
-    // Placeholder method for stopping the canary
-    private static void stopCanary() {
-        System.out.println("Canary stopped.");
-        // Implement the stop logic here
-    }
-https://arun19081988.s3.us-east-1.amazonaws.com/s3.mp4?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEG8aCXVzLWVhc3QtMSJIMEYCIQC%2BFDlQxY0eemkCUY765YO5RLILafPAO5GeGbnAewAG8gIhAPUB8SHrjFsC0uM%2Fq9386fkQI%2BQVTkBKlRlTFpZe6JB1KvECCLj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMMjAyNTMzNTQzNDc4Igw0ta7Pxu5BOGG1FWQqxQKtLRaLbcszDrmy%2Bp8dKzXXvz4ES48jaqyntf%2BrwzyYXt%2FREFqHFi5TzMBDpVqs3p6IH994KgxvSZJ%2BTaXeYYz8Avym6unZQzT6%2BTklH5LNrZy9nMvHFcSesX4MyuBwvd8y5lUsVZ6QiJxst3yBjz%2FHE9e%2BzW%2BTT4YNKbjx7VZzLh1gXlwB3LMhbm0gPaiiRI9ZI%2F62INebhyzkS19GZp4LYHzDsT0DHFklzvxpB6pr%2BJWKJybjhFkCR9vmwUncS4bW3JnHTMxfKPZxQ%2FHc86ZKGzpCzDsn9bdG%2Bdb3O0rglj%2B4AG0%2BsPHVfmrPXYsISvnnVwEm0plfH1I5tXYr1mFppDKQGz9KNyj8PlcJNQxh55H9P5jbyVFIu80wm1O3FMcW2PEuunraHKIzu9NDJlO%2F6ZMrQZpovNokS0E5qdJBB5%2Fv1WgPMLv5%2BLcGOrICmyI9mZczst1%2BmrXVMKcBWre4v9oithKbDhDWAaBWk9sMNTmdEyus96VT9X0rUZ%2BDAuBPRSgpK7t3SBno2ilWQP9Tpr0lSAFSIy1koHcBRYdb9pdTcUe2QWAppTvr32TMyfBYV0%2BnGnRJVDLlYMn83hbRNtGvCOfRxVJ%2FdxPWrMrrxEjddW0IdZ4N3oZ%2FQUMPU3gn%2B%2BsI0tfV3BfOKrsUw1ylT3Jl3RXFkznIlEIqHl7Dzv4kDGOmmInfhlT7CK6ywZyCSKBJhsYVi%2FMDOGLoEw9pFqSp3c3zolxq0ytwpb8hwoZ2veG0Fwse8SAbJpPf3vrnaRiIa8VPNzm61R0vr630qrmOr2xP6HDvr%2BaG%2BLYGyze7HsEabTCp3t%2BwKgky0NavFaaeSrUlUv2YemMZB6dC&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20241003T082343Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAS6J7QTY3JUMIQ5JP%2F20241003%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=fd5b4f1be1e866fc084ccdf6b6704a71b2de78d76883d7301c20276a472d0a8e
-
-}
+Utilize UI Canary and SST tools for web-based checks.
+Partner with UIPath to automate thick client/desktop checks.
 
 
 
-Background
-Spartan UI Canary is a tool that helps teams create automated tests to make sure their applications are working smoothly. It’s part of a system that continuously checks the performance of key features to ensure everything is running as expected.
 
-Problem
-System issues or outages can disrupt business operations, potentially causing significant losses. We need a way to regularly monitor platform availability, check response times, and track performance metrics for each application.
+Implementation and Progress:
 
-Solution
-Spartan UI Canary offers a ready-made template for creating automated tests that monitor your application’s performance and health. These tests can be easily integrated into our systems and deployed quickly. Spartan gathers real-time data to monitor the system’s status, helping us catch and fix issues early. We use tools like Grafana and Geneos to visualize this data and ensure everything is running smoothly.
+UI checks implemented for ~23 applications via UI Canneries.
+Work ongoing for the remaining 3 applications.
+Geneos Alerting:
 
-Benefits
+Geneos alerting integrated with UI Canneries.
+Setup completed for ~16 applications.
+UIPath Configuration:
 
-Reduces setup time by 50%, saving effort in building automated tests.
-Provides automated checks with minimal coding, capturing performance data.
-Makes it easy to monitor the system's health in real-time.
-
-
-Background
-Spartan UI Canary helps teams create automated tests to ensure their applications are always running smoothly. It continuously checks key features to prevent issues.
-
-Problem
-System outages can disrupt business operations, causing significant losses. We need a way to monitor application availability and performance.
-
-Solution
-Spartan provides a simple template for creating automated tests, integrated into our systems. It tracks real-time data to identify issues early, using tools like Grafana and Geneos.
-
-Benefits
-
-Saves 50% of build effort.
-Automates health checks with minimal coding.
-Improves system monitoring and reduces manual work.
-
+Configuration in progress for 2 applications on UIPath.
